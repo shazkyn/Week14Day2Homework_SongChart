@@ -17,6 +17,7 @@ class Top20Container extends React.Component{
                 title: entry["title"]["label"],
                 artist: entry["im:artist"]["label"],
                 album: entry["im:collection"]["im:name"]["label"],
+                imageUrl: entry["im:image"][2]["label"],
                 releaseDate: entry["im:releaseDate"]["attributes"]["label"],
                 price: entry["im:price"]["label"],
             })))
@@ -27,6 +28,7 @@ class Top20Container extends React.Component{
         const songList = this.state.topSongs.map(song => (
             <li key={song.id}>
                 <div>Album: {song.album}</div>
+                <div><img src={song.imageUrl}/> </div>
                 <div>Title: {song.title}</div>
                 <div>Artist: {song.artist}</div>
                 <div>Release Date: {song.releaseDate}</div>
